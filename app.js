@@ -109,3 +109,24 @@ async function greet3(message) {
 greet3("Angve1");
 greet3("Angve2");
 greet3("Angve3");
+
+const url = "data.json";
+const jsonData = async function () {
+  try {
+    const data = await fetch(url);
+    const res = await data.json();
+    console.log(res);
+    addtoPage(res);
+  } catch {
+    console.log(err);
+  }
+};
+
+jsonData();
+
+function addtoPage(arr) {
+  arr.forEach((el) => {
+    console.log(el);
+    output.innerHTML += `<div>${el.first} ${el.last}</div>`;
+  });
+}
